@@ -10,12 +10,12 @@ class TwoColorRandom(Effect):
     def __init__(self) -> None:
         super().__init__()
         self.accepted_commands = {
-            "SET_PRIMARY_COLOR": self.set_primary_color,
-            "SET_SECONDARY_COLOR": self.set_secondary_color,
-            "SET_PRIMARY_BRIGHTNESS": self.set_primary_brightness,
-            "SET_SECONDARY_BRIGHTNESS": self.set_secondary_brightness
+            "SET_SECONDARY_COLOR": self.set_primary_color,
+            # "SET_SECONDARY_COLOR": self.set_secondary_color,
+            "SET_SECONDARY_BRIGHTNESS": self.set_primary_brightness,
+            # "SET_SECONDARY_BRIGHTNESS": self.set_secondary_brightness
         }
-        self.primary_color = (0, 0, 20)
+        self.primary_color = (0, 0, 0)
         self.secondary_color = (0, 0, 0)
         self.primary_brightness = 100
         self.secondary_brightness = 100

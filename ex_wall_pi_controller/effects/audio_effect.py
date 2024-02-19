@@ -17,9 +17,9 @@ class AudioEffect(Effect):
             "SET_LOW_FREQUENCY_REACT_STATE": self.set_frequency_react_state,
             "SET_HIGH_FREQUENCY_THRESHOLD": self.set_freq_threshold,
             "SET_LOW_FREQUENCY_THRESHOLD": self.set_freq_threshold,
-            # "SET_PRIMARY_COLOR": self.set_color,
-            "SET_SECONDARY_COLOR": self.set_color,
-            "SET_SECONDARY_BRIGHTNESS": self.set_brightness
+            "SET_PRIMARY_COLOR": self.set_color,
+            # "SET_SECONDARY_COLOR": self.set_color,
+            "SET_PRIMARY_BRIGHTNESS": self.set_brightness
         }
 
     """ Incoming command Handlers """
@@ -79,7 +79,7 @@ class AudioEffect(Effect):
             self.audio_effect_processor.primary_color = (255, 0, 0)
         
         # May want to remove this
-        self.secondary_color = complement(*self.audio_effect_processor.primary_color)
+        self.audio_effect_processor.secondary_color = complement(*self.audio_effect_processor.primary_color)
 
     def get_frame(self, current_frame: np.array = None) -> Frame:
         frame = self.audio_effect_processor.get_frame(current_frame=current_frame)
