@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ex-wall-pi-controller"
+version = "0.1.0"
+description = ""
+authors = ["Trevor O'Leary <git@trevoroleary.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9.0"
+ex-wall-frame-transmitter = {git = "https://github.com/Ex-Machina-Wall/frame-transmitter.git"}
+ex-wall-audio-reactor = {git = "https://github.com/Ex-Machina-Wall/audio-reactor.git"}
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
