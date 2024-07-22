@@ -1,6 +1,6 @@
 from ex_wall_pi_controller.image_handling.image_handler import ImageHandler
 from ex_wall_pi_controller.effects import TwoColorRandom, ImageEffect, AudioEffect
-from ex_wall_pi_controller.ntfy_listener import NTFYListener
+from ex_wall_pi_controller.http_listener import HTTPListener
 from ex_wall_pi_controller.frame import Frames
 
 from ex_wall_frame_transmitter import FrameTransmitter
@@ -19,7 +19,7 @@ class Panel:
         self.logger = logging.getLogger("Panel")
         self.frame_transmitter = FrameTransmitter(destination_uri=config("DESTINATION_URI"))
         self.frame_transmitter.start()
-        self.ntfy_listener = NTFYListener()
+        self.ntfy_listener = HTTPListener()
         self.ntfy_listener.start_thread()
         self.image_handler = ImageHandler()
         self.effects_list = [
