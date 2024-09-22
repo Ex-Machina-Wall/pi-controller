@@ -140,7 +140,10 @@ class ImageEffect(Effect):
     def _get_image_from_url(self, url: str) -> Image:
         download_path = Path(self._TEMP_STORAGE, "downloaded_image.png")
         try:
-            urllib.request.urlretrieve(url, download_path)
+            # urllib.request.urlretrieve(url, download_path)
+            opener = urllib.request.URLopener()
+            opener.addheader('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2)     AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')
+            opener.retrieve(url, download_path)
         except:
             return None
         image = Image.open(download_path)

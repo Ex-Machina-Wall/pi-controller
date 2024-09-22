@@ -31,10 +31,21 @@ class ImageHandler:
 
     def get_image_from_url(self, url: str) -> np.array:
         download_path = Path(self.DOWNLOAD_LOCATION, "downloaded_image.png")
-        urllib.request.urlretrieve(url, download_path)
+        opener = urllib.request.URLopener()
+        opener.addheader('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2)     AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36')
+        opener.retrieve(url, download_path)
         return self._open_saved_image(download_path)
         
     
     def open_saved_image(self, name: str, frame: int = None) -> np.array:
         return self._open_saved_image(Path(self.SAVE_LOCATION, name), frame=frame)
 
+
+
+def main():
+    img_handler = ImageHandler()
+    img_handler.get_image_from_url(url="https://i.gifer.com/embedded/download/7ZNJ.gif")
+
+
+if __name__ == "__main__":
+    main()
