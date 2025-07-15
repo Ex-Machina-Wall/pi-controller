@@ -27,7 +27,7 @@ class AudioListener:
             rate=self.RATE,
             input=True,
             frames_per_buffer=self.CHUNK, 
-            input_device_index=4
+            input_device_index=3
         )
         self.thread = Thread(target=self._thread)
         self.running = True
